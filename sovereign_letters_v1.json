@@ -1,0 +1,226 @@
+[
+  {
+    "letter": "ا",
+    "mass": 5.0,
+    "speed": 10.0,
+    "direction": "outward",
+    "energy_type": "kinetic",
+    "orbit_weight": 1.5
+  },
+  {
+    "letter": "ب",
+    "mass": 8.0,
+    "speed": 4.0,
+    "direction": "inward",
+    "energy_type": "potential",
+    "orbit_weight": 1.2
+  },
+  {
+    "letter": "ت",
+    "mass": 7.0,
+    "speed": 5.0,
+    "direction": "inward",
+    "energy_type": "stabilizing",
+    "orbit_weight": 1.1
+  },
+  {
+    "letter": "ث",
+    "mass": 7.8,
+    "speed": 6.2,
+    "direction": "outward",
+    "energy_type": "radiant",
+    "orbit_weight": 1.28
+  },
+  {
+    "letter": "ج",
+    "mass": 9.0,
+    "speed": 6.0,
+    "direction": "outward",
+    "energy_type": "generative",
+    "orbit_weight": 1.4
+  },
+  {
+    "letter": "ح",
+    "mass": 6.0,
+    "speed": 7.0,
+    "direction": "inward",
+    "energy_type": "pure",
+    "orbit_weight": 1.8
+  },
+  {
+    "letter": "خ",
+    "mass": 10.0,
+    "speed": 3.0,
+    "direction": "outward",
+    "energy_type": "transformative",
+    "orbit_weight": 1.3
+  },
+  {
+    "letter": "د",
+    "mass": 8.5,
+    "speed": 5.5,
+    "direction": "inward",
+    "energy_type": "firm",
+    "orbit_weight": 1.25
+  },
+  {
+    "letter": "ذ",
+    "mass": 8.8,
+    "speed": 7.8,
+    "direction": "outward",
+    "energy_type": "piercing",
+    "orbit_weight": 1.38
+  },
+  {
+    "letter": "ر",
+    "mass": 7.5,
+    "speed": 9.0,
+    "direction": "outward",
+    "energy_type": "vibrational",
+    "orbit_weight": 1.6
+  },
+  {
+    "letter": "ز",
+    "mass": 8.2,
+    "speed": 8.8,
+    "direction": "outward",
+    "energy_type": "spark",
+    "orbit_weight": 1.42
+  },
+  {
+    "letter": "س",
+    "mass": 6.5,
+    "speed": 8.5,
+    "direction": "outward",
+    "energy_type": "flowing",
+    "orbit_weight": 1.45
+  },
+  {
+    "letter": "ش",
+    "mass": 9.2,
+    "speed": 8.0,
+    "direction": "outward",
+    "energy_type": "expansive",
+    "orbit_weight": 1.75
+  },
+  {
+    "letter": "ص",
+    "mass": 11.0,
+    "speed": 4.5,
+    "direction": "inward",
+    "energy_type": "compressed",
+    "orbit_weight": 1.95
+  },
+  {
+    "letter": "ض",
+    "mass": 11.5,
+    "speed": 4.2,
+    "direction": "inward",
+    "energy_type": "dense",
+    "orbit_weight": 2.05
+  },
+  {
+    "letter": "ط",
+    "mass": 10.8,
+    "speed": 5.0,
+    "direction": "inward",
+    "energy_type": "anchored",
+    "orbit_weight": 1.9
+  },
+  {
+    "letter": "ظ",
+    "mass": 10.2,
+    "speed": 6.8,
+    "direction": "outward",
+    "energy_type": "projective",
+    "orbit_weight": 1.72
+  },
+  {
+    "letter": "ع",
+    "mass": 9.8,
+    "speed": 6.5,
+    "direction": "inward",
+    "energy_type": "deep",
+    "orbit_weight": 1.88
+  },
+  {
+    "letter": "غ",
+    "mass": 10.5,
+    "speed": 6.0,
+    "direction": "outward",
+    "energy_type": "veiled",
+    "orbit_weight": 1.83
+  },
+  {
+    "letter": "ف",
+    "mass": 8.0,
+    "speed": 9.2,
+    "direction": "outward",
+    "energy_type": "opening",
+    "orbit_weight": 1.58
+  },
+  {
+    "letter": "ق",
+    "mass": 12.0,
+    "speed": 4.0,
+    "direction": "inward",
+    "energy_type": "sovereign",
+    "orbit_weight": 2.0
+  },
+  {
+    "letter": "ك",
+    "mass": 7.8,
+    "speed": 8.6,
+    "direction": "outward",
+    "energy_type": "cutting",
+    "orbit_weight": 1.62
+  },
+  {
+    "letter": "ل",
+    "mass": 5.5,
+    "speed": 9.5,
+    "direction": "outward",
+    "energy_type": "connecting",
+    "orbit_weight": 1.7
+  },
+  {
+    "letter": "م",
+    "mass": 9.5,
+    "speed": 4.5,
+    "direction": "inward",
+    "energy_type": "containing",
+    "orbit_weight": 1.9
+  },
+  {
+    "letter": "ن",
+    "mass": 7.0,
+    "speed": 8.0,
+    "direction": "outward",
+    "energy_type": "emerging",
+    "orbit_weight": 1.55
+  },
+  {
+    "letter": "ه",
+    "mass": 4.0,
+    "speed": 11.0,
+    "direction": "outward",
+    "energy_type": "breath",
+    "orbit_weight": 1.35
+  },
+  {
+    "letter": "و",
+    "mass": 6.0,
+    "speed": 10.0,
+    "direction": "outward",
+    "energy_type": "linking",
+    "orbit_weight": 1.65
+  },
+  {
+    "letter": "ي",
+    "mass": 5.0,
+    "speed": 12.0,
+    "direction": "inward",
+    "energy_type": "manifesting",
+    "orbit_weight": 1.85
+  }
+]
