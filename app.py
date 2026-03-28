@@ -1,53 +1,47 @@
 import streamlit as st
 import plotly.graph_objects as go
-import json
-import os
 
-# إعدادات المحراب السيادي
-st.set_page_config(page_title="Nibras Sovereign v8.0", layout="wide")
+# إعدادات المحراب السيادي v9.0
+st.set_page_config(page_title="Nibras Sovereign v9.0", layout="wide")
 
-def load_data(file_name, default_data):
-    # محاولة التحميل من الملف الخارجي أولاً
-    if os.path.exists(file_name):
-        try:
-            with open(file_name, 'r', encoding='utf-8') as f:
-                return json.load(f)
-        except:
-            return default_data
-    return default_data
-
-# بيانات الطوارئ (تفعيل البصيرة فوراً في حال فقدان الملف)
-emergency_roots = {
-    "علم": {"تكرار": 854, "مقام": "علوي", "طاقة": 5},
-    "نور": {"تكرار": 43, "مقام": "متوسط", "طاقة": 5},
-    "كتب": {"تكرار": 319, "مقام": "أرضي", "طاقة": 4}
+# قاعدة بيانات سيادية مدمجة (لا تحتاج لملفات خارجية)
+NIBRAS_DATA = {
+    "علم": {"تكرار": 854, "طاقة": 5, "وعي": 5, "مقام": 5, "أثر": 5, "تعريف": "انكشاف الحقائق بالبصيرة"},
+    "نور": {"تكرار": 43, "طاقة": 5, "وعي": 5, "مقام": 4, "أثر": 5, "تعريف": "ظهور الذات في مرائي الصفات"},
+    "كتب": {"تكرار": 319, "طاقة": 4, "وعي": 4, "مقام": 3, "أثر": 4, "تعريف": "تثبيت الوجود في لوح التقدير"},
+    "روح": {"تكرار": 21, "طاقة": 5, "وعي": 5, "مقام": 5, "أثر": 5, "تعريف": "أمر الله الساري في الكائنات"}
 }
 
-st.title("🛡️ محراب نبراس: التمكين السيادي")
+st.title("🛡️ محراب نبراس: التمكين السيادي v9.0")
+st.subheader("الرصد المباشر - البصيرة المدمجة")
 
-# فحص الاتصال بالبيانات
-roots = load_data('quran_roots_complete.json', emergency_roots)
-
-target_word = st.text_input("أدخل الكلمة أو الجذر للرصد (جرب: علم أو نور):", "")
+target_word = st.text_input("أدخل الكلمة للرصد (جرب: علم، نور، روح):", "").strip()
 
 if target_word:
-    if target_word in roots:
-        st.success(f"✅ تم رصد المدار المقلوب لـ: {target_word}")
+    if target_word in NIBRAS_DATA:
+        st.success(f"✅ تم الرصد السيادي للمدار: {target_word}")
+        data = NIBRAS_DATA[target_word]
         
-        # هندسة الرادار (البصيرة)
-        data = roots[target_word]
+        # رسم رادار البصيرة
         fig = go.Figure()
         fig.add_trace(go.Scatterpolar(
-            r=[data.get('طاقة', 3), 4, 5, 3],
-            theta=['طاقة', 'وعي', 'مقام', 'أثر'],
+            r=[data['طاقة'], data['وعي'], data['مقام'], data['أثر'], data['طاقة']],
+            theta=['طاقة', 'وعي', 'مقام', 'أثر', 'طاقة'],
             fill='toself',
-            name='بصيرة المسار'
+            line=dict(color='#00FFCC'),
+            name=f'مدار {target_word}'
         ))
         
-        fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 5])))
+        fig.update_layout(
+            polar=dict(radialaxis=dict(visible=True, range=[0, 5])),
+            paper_bgcolor="#0E1117",
+            font=dict(color="white")
+        )
         st.plotly_chart(fig)
+        
+        st.info(f"📖 بصيرة الحرف: {data['تعريف']}")
     else:
-        st.warning("⚠️ المسار لم يُرصد في قاعدة البيانات الحالية.")
+        st.warning(f"⚠️ الكلمة '{target_word}' غير مدمجة في هذه النسخة. جرب الكلمات السيادية: علم، نور، روح.")
 
 st.markdown("---")
-st.caption("بعلم مكين نسخر خلاصة التمكين | نبرأس v8.0")
+st.caption("خِت فِت | بعلم مكين نسخر خلاصة التمكين")
