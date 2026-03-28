@@ -1,47 +1,39 @@
 import streamlit as st
 import plotly.graph_objects as go
+import json
+import os
 
-# إعدادات المحراب السيادي v9.0
-st.set_page_config(page_title="Nibras Sovereign v9.0", layout="wide")
+# نبراس السيادي v10.3 - الرابط الشعبي الموحد
+st.set_page_config(page_title="Nibras Final", layout="wide")
 
-# قاعدة بيانات سيادية مدمجة (لا تحتاج لملفات خارجية)
-NIBRAS_DATA = {
-    "علم": {"تكرار": 854, "طاقة": 5, "وعي": 5, "مقام": 5, "أثر": 5, "تعريف": "انكشاف الحقائق بالبصيرة"},
-    "نور": {"تكرار": 43, "طاقة": 5, "وعي": 5, "مقام": 4, "أثر": 5, "تعريف": "ظهور الذات في مرائي الصفات"},
-    "كتب": {"تكرار": 319, "طاقة": 4, "وعي": 4, "مقام": 3, "أثر": 4, "تعريف": "تثبيت الوجود في لوح التقدير"},
-    "روح": {"تكرار": 21, "طاقة": 5, "وعي": 5, "مقام": 5, "أثر": 5, "تعريف": "أمر الله الساري في الكائنات"}
-}
+def load_data(file_name):
+    # المسار المعتمد بعد تنظيم كوبيلوت (داخل مجلد data)
+    path = os.path.join(os.path.dirname(__file__), 'data', file_name)
+    if os.path.exists(path):
+        with open(path, 'r', encoding='utf-8') as f:
+            return json.load(f)
+    return None
 
-st.title("🛡️ محراب نبراس: التمكين السيادي v9.0")
-st.subheader("الرصد المباشر - البصيرة المدمجة")
+# تحميل البيانات (الجذور)
+roots = load_data('quran_roots_complete.json')
 
-target_word = st.text_input("أدخل الكلمة للرصد (جرب: علم، نور، روح):", "").strip()
+st.title("🛡️ محراب نبراس: الرصد الشعبي")
 
-if target_word:
-    if target_word in NIBRAS_DATA:
-        st.success(f"✅ تم الرصد السيادي للمدار: {target_word}")
-        data = NIBRAS_DATA[target_word]
-        
-        # رسم رادار البصيرة
-        fig = go.Figure()
-        fig.add_trace(go.Scatterpolar(
-            r=[data['طاقة'], data['وعي'], data['مقام'], data['أثر'], data['طاقة']],
+target = st.text_input("أدخل الجذر للرصد (جرب: علم، نور):", "").strip()
+
+if target:
+    if roots and target in roots:
+        st.success(f"✅ تم رصد المدار: {target}")
+        val = roots[target]
+        fig = go.Figure(data=go.Scatterpolar(
+            r=[val.get('طاقة', 3), 4, 5, 4, val.get('طاقة', 3)],
             theta=['طاقة', 'وعي', 'مقام', 'أثر', 'طاقة'],
             fill='toself',
-            line=dict(color='#00FFCC'),
-            name=f'مدار {target_word}'
+            line=dict(color='#00FFCC')
         ))
-        
-        fig.update_layout(
-            polar=dict(radialaxis=dict(visible=True, range=[0, 5])),
-            paper_bgcolor="#0E1117",
-            font=dict(color="white")
-        )
-        st.plotly_chart(fig)
-        
-        st.info(f"📖 بصيرة الحرف: {data['تعريف']}")
+        fig.update_layout(polar=dict(radialaxis=dict(visible=True, range=[0, 5])), showlegend=False)
+        st.plotly_chart(fig, use_container_width=True)
     else:
-        st.warning(f"⚠️ الكلمة '{target_word}' غير مدمجة في هذه النسخة. جرب الكلمات السيادية: علم، نور، روح.")
+        st.warning("⚠️ المسار غير مرصود في قاعدة بيانات المجلد data.")
 
-st.markdown("---")
-st.caption("خِت فِت | بعلم مكين نسخر خلاصة التمكين")
+st.caption("خِت فِت | التمكين عبر التنظيم السيادي")
